@@ -9,10 +9,9 @@ const CharacterCard = ({ item }) => {
     
     React.useEffect(() => {
         findFirstSeenEpisode(item);
-    }, [])
+    }, [item])
     return (
-        // <>
-        <div className={styles.card}>
+        <div className={styles.card} key={item?.id}  >
             <Link className={styles.cardCharacter} style={{ textDecoration: 'none' }} to={`/CharacterDetail/${item?.id}`} >
                 <img className={styles.cardCharacterImg} src={item.image} />
                 <div className={styles.cardCharacterDescription} >
@@ -25,11 +24,9 @@ const CharacterCard = ({ item }) => {
                     <div className={styles.cardCharacterDescText}>{item.location.name}</div>
                     <div className={styles.cardCharacterDescTitle}>First seen in:</div>
                     <div className={styles.cardCharacterDescText}>{firstSeenEpisode}</div>
-                    {/* <button onClick={()=>findFirstSeenEpisode(item)} >find first seen</button> */}
                 </div>
             </Link>
         </div>
-        // </>
     )
 
 

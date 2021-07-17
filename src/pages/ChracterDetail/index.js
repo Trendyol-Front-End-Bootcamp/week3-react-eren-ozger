@@ -16,6 +16,7 @@ const CharacterDetail = () => {
         axios.get(`/api/character/${id}`).catch((err) =>
             setError(err.message)
         ).then((response) => {
+            console.log("response.data : ",response.data)
             setCharacter(response.data)
             let episodesIdArray = [];
             response.data.episode.reverse().forEach((item,index) => {
@@ -23,15 +24,16 @@ const CharacterDetail = () => {
                     let splitArr = item?.split("/");
                     let episode_id = splitArr[splitArr.length - 1];
                     if (episode_id) {
-                        index <10 && episodesIdArray.push(episode_id)
+                        index < 10 && episodesIdArray.push(episode_id)
                     }
                 }
             });
-            let commaSeperatedString = episodesIdArray.join(",");
+
+            let commaSeperatedString = episodesIdArray.length === 1 ? episodesIdArray[0] : episodesIdArray.join(",");
             axios.get(`/api/episode/${commaSeperatedString}`).catch((err) =>
                 setError(err.message)
             ).then((response) => {
-                setEpisodeList(response.data);
+                setEpisodeList(response.data.length > 0 ? response.data : [response.data]);
             })
         
         }
@@ -56,7 +58,7 @@ const CharacterDetail = () => {
                     {character !== null && <CharacterCard item={character} />}
                     <div className={styles.lastEpisodesContainer}>
                         <div className={styles.lastEpisodesContainerTitle}>{`Last ${episodeList?.length} episode(s)`}</div>
-                        {episodeList?.length && 
+                        {episodeList?.length>0 && 
                         episodeList.map((item)=>{
                             return renderEpisodeItem(item);
                         }) }
