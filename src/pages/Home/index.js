@@ -5,6 +5,7 @@ import Footer from '../../components/Footer';
 import { CharacterContext } from '../../utils/contexts/CharacterContext';
 import CharacterCard from '../../components/CharacterCard/index';
 import Pagination from '../../components/Pagination/index';
+import Filter from '../../components/Filter/index';
 
 
 const Home = () => {
@@ -14,10 +15,9 @@ const Home = () => {
         gender :"",
     })
     useEffect(() => {
-
         //page - status - gender 
        useCharacterMemo.getCharacters("",filterParams.status,filterParams.gender);
-    }, [])
+    }, [filterParams])
 
 
     return (
@@ -25,6 +25,7 @@ const Home = () => {
             <div className={styles.home}  >
                 <Header />
                 <Pagination filterParams={filterParams} />
+                <Filter filterParams={filterParams} setFilterParams={setFilterParams} />
                 {renderHomeContent()}
                 <Footer />
             </div>

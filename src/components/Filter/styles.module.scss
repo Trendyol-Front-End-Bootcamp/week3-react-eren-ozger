@@ -1,0 +1,30 @@
+@import "./../../styles/variables";
+
+.filter {
+    width: 100%;
+    background-color: $darkModeDarkGray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &Content {
+        background-color: $darkModeGray;
+        padding: 10px;
+        border-radius: 8px;
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+
+@media only screen and (max-width:1100px){
+    .filter {
+        &Content{
+        // padding:1rem;
+        grid-template-columns: 1fr; 
+    }}
+}

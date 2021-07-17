@@ -19,8 +19,7 @@ const App = () => {
           <Route exact path="/CharacterDetail/:id">
             <CharacterDetail />
           </Route>
-        </Switch>
-        
+        </Switch>    
       </Router>
     </CharacterContext.Provider>
   )
