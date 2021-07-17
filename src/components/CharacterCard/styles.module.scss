@@ -1,0 +1,102 @@
+@import "../../styles/variables";
+
+.card {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  // margin: 10px;
+  padding: 10px;
+  
+
+  &Character {
+    display: flex;
+    width: 80%;
+    min-height: 200px;
+    background-color: $darkModeGray;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 13px 27px -5px hsla(240, 30.1%, 28%, 0.25), 0 8px 16px -8px hsla(0, 0%, 0%, 0.3), 0 -6px 16px -6px hsla(0, 0%, 0%, 0.03);
+    transition: all ease 200ms;
+    
+    &Img {
+      // width: 40%;
+      //   height: 200px;
+      height: max-content;
+      width: 200px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    &Description {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-height: max-content;
+      padding: 15px;
+    }
+
+    &Title{
+        font-size: 28px;
+        color: $white;
+        transition: .3s ease color;
+        margin: 0px;
+    }
+
+    &Title:hover {
+      color: $warm;
+    }
+    
+    &StatusContainer {
+        display: flex;
+        flex-direction: row;
+        // justify-content: center;
+        align-items: center;
+        &>span {
+            margin-right: 5px;
+        }
+    }
+    &DescTitle{
+        color: darkgray;
+        font-weight: 500;
+        font-size: 16px;
+        margin-top: 15px;
+    }
+    
+    &DescText{
+        color: $white;
+        font-weight: 400;
+        font-size: 16px;
+    }
+
+  }
+  &Character:hover {
+    transform: scale(1.03);
+    box-shadow: 0 13px 40px -5px hsla(240, 30.1%, 28%, 0.12), 0 8px 32px -8px hsla(0, 0%, 0%, 0.14), 0 -6px 32px -6px hsla(0, 0%, 0%, 0.02);
+  }
+}
+
+
+.statusCircle {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+    background-color: $darkModeDarkGray;
+}
+
+// @media only screen and (max-width:1100px){
+//     // .hero{
+//     //     &Title{
+//     //         font-size: 50px;
+//     //     }
+//     // }
+//     .card {
+//         &Content{
+//         border-top-left-radius: 25px;
+//         border-top-right-radius: 25px;
+//         padding:1rem;
+//         grid-template-columns: 1fr;
+//     }}
+// }

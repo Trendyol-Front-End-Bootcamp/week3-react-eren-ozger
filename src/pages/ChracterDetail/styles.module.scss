@@ -1,0 +1,71 @@
+@import "../../styles/variables";
+
+.characterDetail {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 150vh;
+    // min-height: auto;
+    width: 100%;
+    
+    &Content {
+        // padding-top: 50px;
+        width: 100%;
+        height: 100%;
+        background-color: $darkModeDarkGray;
+        display: flex;
+        padding-bottom: 20vh;
+
+        // align-items: center;
+
+        &Container {
+            width: 100%;
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px 20px; 
+            height: 100%;
+            background-color: $darkModeDarkGray;
+            place-items: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+    }
+}
+
+.lastEpisodesContainer {
+    width: 75%;
+    min-height: 50%;
+    padding: 10px 15px 10px 15px; 
+    display: flex;
+    background-color: $darkModeGray;   
+    border-radius: 10px;   
+    flex-direction: column;
+    
+    &Title {
+        font-size: 24px;
+        font-weight: 700;
+        color: $white;
+    }
+
+    &Episodes {
+        font-size: 16px;
+        color: $white;
+        margin-top: 20px;
+        display: flex;
+    }
+}
+.grayText{
+    font-size: 16px;
+    margin-left: 5px;
+    font-weight: 700;
+    color: $darkModeLightGray;
+}
+
+@media only screen and (max-width:1100px){
+    .characterDetail {
+        &Content{
+            &Container {
+                grid-template-columns: 1fr; 
+            }
+    }}
+}
