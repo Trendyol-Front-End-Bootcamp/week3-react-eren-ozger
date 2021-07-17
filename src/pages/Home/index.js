@@ -4,13 +4,19 @@ import Header from '../../components/Header/index';
 import Footer from '../../components/Footer';
 import { CharacterContext } from '../../utils/contexts/CharacterContext';
 import CharacterCard from '../../components/CharacterCard/index';
+import Pagination from '../../components/Pagination/index';
 
 
 const Home = () => {
     const { state, useCharacterMemo } = React.useContext(CharacterContext);
-
+    const [filterParams,setFilterParams] = React.useState({
+        status : "",
+        gender :"",
+    })
     useEffect(() => {
-       useCharacterMemo.getCharacters();
+
+        //page - status - gender 
+       useCharacterMemo.getCharacters("",filterParams.status,filterParams.gender);
     }, [])
 
 
@@ -18,6 +24,7 @@ const Home = () => {
         <>
             <div className={styles.home}  >
                 <Header />
+                <Pagination filterParams={filterParams} />
                 {renderHomeContent()}
                 <Footer />
             </div>

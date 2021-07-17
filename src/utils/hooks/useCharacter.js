@@ -37,8 +37,8 @@ export function useCharacter() {
 
     const useCharacterMemo = React.useMemo(
         () => ({
-            getCharacters: async (page) => {
-                axios.get(`/api/character?page=${page}`).catch(
+            getCharacters: async (page,status,gender, wholeLine) => {
+                axios.get(wholeLine ? wholeLine : `/api/character?page=${page}&status=${status}&gender=${gender}`).catch(
                     console.log("error")
                 ).then((response)=>
                     dispatch(createAction("SET_CHARACTER_LIST", response.data))

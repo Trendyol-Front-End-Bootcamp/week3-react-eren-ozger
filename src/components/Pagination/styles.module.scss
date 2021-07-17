@@ -1,0 +1,63 @@
+@import "../../styles/variables";
+
+.pagination {
+  width: 100%;
+  background-color: $darkModeDarkGray;
+  // height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &Buttons {
+    background-color: $darkModeGray;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+
+    &Title {
+        display: flex;
+        font-size: 30;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-weight: 700;
+        color: $white;
+
+    }
+
+    &Btn {
+      position: relative;
+      font-weight: 400;
+      font-size: 1.3rem;
+      line-height: 2;
+      height: 50px;
+      transition: all 200ms linear;
+      border-radius: 4px;
+      width: 240px;
+      letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      align-self: center;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 12px 35px 0 $darkModeDarkGray;
+      outline: 0;
+      text-transform: capitalize;
+
+      &:hover {
+        background-color: $warm;
+        border: $secondary;
+        transform: scale(1.03);
+    
+        span {
+          color: $primary;
+        }
+      }
+    }
+  }
+}
