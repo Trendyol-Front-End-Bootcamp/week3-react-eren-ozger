@@ -16,16 +16,14 @@ const Filter = ({ filterParams, setFilterParams }) => {
             const status = value.target.value === "status_select" ? "" : value.target.value;
             filterParams_temp = {...filterParams,status}
             setFilterParams(filterParams_temp);
-
-
         }
     }
 
 
     return (
         <div className={styles.filter} >
-            <label >
-                <div>Gender</div>
+            <label className={styles.filterLabel} >
+                <div className={styles.filterLabelTitle}>Gender</div>
                 <select value={filterParams.gender} onChange={(value)=>handleChange(value,1)} >
                     <option value="gender_select">Select a gender</option>
                     <option value="female">Female</option>
@@ -35,8 +33,8 @@ const Filter = ({ filterParams, setFilterParams }) => {
                 </select>
             </label>
 
-            <label >
-                <div>Status</div>
+            <label className={styles.filterLabel} >
+                <div className={styles.filterLabelTitle}>Status</div>
                 <select value={filterParams.status} onChange={(value)=>handleChange(value,2)} >
                     <option value="status_select">Select a status</option>
                     <option value="alive">Alive</option>

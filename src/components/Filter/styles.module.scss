@@ -7,15 +7,27 @@
     align-items: center;
     justify-content: center;
     
-    &Content {
+    &Label {
         background-color: $darkModeGray;
-        padding: 10px;
+        padding: 20px;
+        margin-right: 5px;
         border-radius: 8px;
         display: flex;
         gap: 10px;
         margin-top: 20px;
         align-items: center;
         justify-content: center;
+        
+
+        &Title {
+            display: flex;
+            font-size: 30;
+            margin-left: 20px;
+            margin-right: 20px;
+            font-weight: 700;
+            color: $white;
+    
+        }
     }
 }
 
