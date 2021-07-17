@@ -22,19 +22,24 @@ const Pagination = ({filterParams}) => {
             <div className={styles.paginationButtons} >
                 <div className={styles.paginationButtonsBtn} onClick={()=>clickHandler("prev")}
                     style={{ color: state?.apiInfo?.prev === null ? "black" : "orange" }} >Prev</div>
-                <div className={styles.paginationButtonsTitle} >{findCurrentPage(state?.apiInfo?.next)}</div>
+                <div className={styles.paginationButtonsTitle} >{findCurrentPage()}</div>
                 <div className={styles.paginationButtonsBtn} onClick={()=>clickHandler("next")}
                     style={{ color: state?.apiInfo?.next === null ? "black" : "orange" }} >Next</div>
             </div>
         </div>
     )
 
-    function findCurrentPage(next){
-        if(!next){
-            return state?.apiInfo?.count;
-        }else {
-            let splitArr = next.split("=");
-            return parseInt(splitArr[splitArr.length -1]) -1;
+    function findCurrentPage(){
+        let prev = state?.apiInfo?.prev;
+        let next = state?.apiInfo?.next;
+        if(!next && prev){
+            let splitArr = prev.split("page=");
+            let splitAgain = splitArr[1].split("&");
+            return parseInt(splitAgain[0]);
+        }else if(next) {
+            let splitArr = next.split("page=");
+            let splitAgain = splitArr[1].split("&");
+            return parseInt(splitAgain[0]) -1;
         }
     }
 }
